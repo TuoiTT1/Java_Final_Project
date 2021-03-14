@@ -1,0 +1,56 @@
+<form (ngSubmit)="save()" xmlns="http://www.w3.org/1999/html">
+  <div class="row">
+    <div class="col-8">
+      <dl class="row-cols-md-8">
+        <dt>
+          <label for="name">Tên sách</label>
+        </dt>
+        <dd>
+          <input [(ngModel)]="book.name" id="name" name="name" type="text"/>
+        </dd>
+        <dt>
+          <label class="form-control-label" for="category">Bộ môn</label>
+        </dt>
+        <dd>
+          <select [(ngModel)]="book.categoryId" class="form-control" id="category"
+                  name="category" required="">
+            <option *ngFor="let categoryOption of categories; trackBy: trackCategoryById"
+                    [ngValue]="categoryOption.id">{{categoryOption.title}}</option>
+          </select>
+        </dd>
+        <dt>
+          <label for="author">Tác giả</label>
+        </dt>
+        <dd>
+          <input [(ngModel)]="book.author" id="author" name="author" type="text"/>
+        </dd>
+        <dt>
+          <label for="yearOfPublisher">Năm xuất bản</label>
+        </dt>
+        <dd>
+          <input [(ngModel)]="book.yearOfPublisher" id="yearOfPublisher" name="yearOfPublisher" type="text"/>
+        </dd>
+        <dt>
+          <label for="publisher">Nhà xuất bản</label>
+        </dt>
+        <dd>
+          <input [(ngModel)]="book.publisher" id="publisher" name="publisher" type="text"/>
+        </dd>
+        <dt>
+          <label for="quantity">Số lượng</label>
+        </dt>
+        <dd>
+          <input [(ngModel)]="book.quantity" id="quantity" name="quantity" type="text"/>
+        </dd>
+        <dt>
+          <label for="price">Giá bán</label>
+        </dt>
+        <dd>
+          <input [(ngModel)]="book.price" id="price" name="price" type="text"/>
+        </dd>
+      </dl>
+      <button (click)="previousState()">Hủy</button>
+      <button type="submit">Lưu</button>
+    </div>
+  </div>
+</form>

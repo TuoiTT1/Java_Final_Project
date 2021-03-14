@@ -1,0 +1,47 @@
+<div class="row">
+    <a routerLink="/add">Thêm mới</a>
+</div>
+<div class="row">
+    <div class="col-12 col-md-8">
+      <input [(ngModel)]="nameSearch" class="form-control" placeholder="Search by name" type="text"/>
+    </div>
+    <div class="col-12 col-md-2">
+      <button
+        (click)="searchBookLike()"
+        class="btn btn-outline-secondary"
+        type="button">
+        Tìm kiếm
+      </button>
+    </div>
+    <div class="col-12 col-md-2">
+      <button class="btn bg-transparent"
+              (click)="refreshList()"
+              style="margin-left: -40px; z-index: 100;">
+        <i class="fa fa-times"></i>
+        Clear
+      </button>
+    </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table>
+      <tr>
+        <th>STT</th>
+        <th>Tên sách</th>
+        <th>Tác giả</th>
+        <th>Năm xuất bản</th>
+        <th>Nhà xuất bản</th>
+        <th colspan="2"></th>
+      </tr>
+      <tr *ngFor="let book of books; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{book.name}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.yearOfPublisher}}</td>
+        <td>{{book.publisher}}</td>
+        <td><a routerLink="/books/{{book.id}}">Chi tiết</a></td>
+      </tr>
+    </table>
+  </div>
+</div>
