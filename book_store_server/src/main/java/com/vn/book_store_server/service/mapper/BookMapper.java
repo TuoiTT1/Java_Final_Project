@@ -10,7 +10,7 @@ public interface BookMapper {
     @Mapping(source = "category.id", target = "categoryId")
     BookDTO toDTO(Book model);
 
-    @Mapping(source = "categoryId",target = "category")
+    @Mapping(source = "categoryId", target = "category")
     Book toModel(BookDTO dto);
 
     default Book fromId(Integer id) {
